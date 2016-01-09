@@ -45,7 +45,13 @@ alias lsg='ll | grep'
 
 # Alias Editing
 alias ae='vim $yadr/zsh/aliases.zsh; ar' #alias edit
+
+TRAPHUP() {
+  source $yadr/zsh/aliases.zsh
+}
+
 alias ar='source $yadr/zsh/aliases.zsh'  #alias reload
+alias gar="killall -HUP -u \"$USER\" zsh"  #global alias reload
 
 # vim using
 mvim --version > /dev/null 2>&1
@@ -62,7 +68,6 @@ alias ve='vim ~/.vimrc'
 
 # zsh profile editing
 alias ze='vim ~/.zshrc'
-alias zr='source ~/.zshrc'
 
 # Git Aliases
 alias gs='git stash'
@@ -100,6 +105,11 @@ alias rdmr='rake db:migrate:redo'
 # Zeus
 alias zs='zeus server'
 alias zc='zeus console'
+alias zr='zeus rspec'
+alias zrc='zeus rails c'
+alias zrs='zeus rails s'
+alias zrdbm='zeus rake db:migrate'
+alias zrdbtp='zeus rake db:test:prepare'
 
 # Rspec
 alias rs='rspec spec'
@@ -109,6 +119,7 @@ alias srgm='spring rails g migration'
 alias srdm='spring rake db:migrate'
 alias srdt='spring rake db:migrate'
 alias srdmt='spring rake db:migrate db:test:prepare'
+
 
 # Sprintly - https://github.com/nextbigsoundinc/Sprintly-GitHub
 alias sp='sprintly'
@@ -128,8 +139,7 @@ alias dbmr='spring rake db:migrate:redo'
 alias dbmd='spring rake db:migrate:down'
 alias dbmu='spring rake db:migrate:up'
 
-# Homebrew
-alias brewu='brew update && brew upgrade && brew cleanup && brew prune && brew doctor'
+alias brewu='brew update  && brew upgrade --all && brew cleanup && brew prune && brew doctor'
 
 # Personal stuff
 alias pull_request='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
@@ -159,11 +169,6 @@ function squashMaster {
 function notify_end () {
     $*
     terminal-notifier -message "$1 is endeed"
-}
-
-# Reload zshrc on all sessions
-TRAPHUP() {
-  . ~/.zshrc
 }
 
 alias reload="killall -HUP zsh"
