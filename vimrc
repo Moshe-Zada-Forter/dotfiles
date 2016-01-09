@@ -10,7 +10,6 @@ endif
 
 " ================ General Config ====================
 
-set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
@@ -18,6 +17,8 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set title
+set shortmess=atI
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -60,9 +61,9 @@ endif
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 set expandtab
 
 filetype plugin on
@@ -109,5 +110,48 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
+" ============= Personal settings ========================
+imap <C-A> <C-O><Home>
+imap <C-E> <C-O><End>
+"map <C-E> <C-O> <End>
+
+"Disable flush on exit
+"set t_ti= t_te=
+
+map z :set paste<ENTER>i
+map <F3> :CtrlP<ENTER>
+set pastetoggle=<C-Z>
+
+" Disable java compile
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': ['foo', 'bar'],
+                           \ 'passive_filetypes': ['java'] }
+
+" Strip trailing whitespace
+function! <SID>StripTrailingWhitespaces()
+   let _s=@/
+   let l = line(".")
+   let c = col(".")
+   %s/\s\+$//e
+   let @/=_s
+   call cursor(l, c)
+endfunction
+
+nnoremap <silent> <leader>W :call <SID>StripTrailingWhitespaces()<CR>
+
+"Break long lines
+set wrap
+
+imap ± ~
+imap § `
+
+set cpoptions+=$ "show dollar sign at end of text to be changed
+
+set lazyredraw          " redraw only when we need to.
+
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
 " ================ Custom Settings ========================
+
 so ~/.yadr/vim/settings.vim
