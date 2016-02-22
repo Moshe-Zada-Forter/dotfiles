@@ -189,3 +189,5 @@ alias a="atom"
 alias startredis='sudo launchctl start io.redis.redis-server'
 alias stopredis='sudo launchctl stop io.redis.redis-server'
 alias curl="curl -s"
+alias vi=vim
+alias ipyspark="PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --master local[1] --jars /Users/Moshe/dev/spark-reindex/jars/elasticsearch-hadoop-2.1.2/dist/elasticsearch-hadoop-2.1.2.jar --driver-class-path  /Users/Moshe/dev/spark-reindex/jars/elasticsearch-hadoop-2.1.2/dist/elasticsearch-hadoop-2.1.2.jar"
