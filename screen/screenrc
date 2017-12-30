@@ -1,0 +1,40 @@
+altscreen on
+term screen-256color
+startup_message off
+
+# bind arrows for moving between windows
+bind -k kr focus right
+bind -k kl focus left
+bind -k ku focus up
+bind -k kd focus down
+
+#backtick 1 0 1 git rev-parse --abbrev-ref HEAD
+#backtick 1 0 5 git rev-parse --abbrev-ref HEAD
+backtick 1 0 5 bash -c 'git rev-parse --abbrev-ref HEAD | sed -e "s/moshe-//" -e "s/-feature//" -e "s/-/ /g"'
+backtick 2 0 5 cat /tmp/node_version
+
+#change the hardstatus settings to give an window list at the bottom of the
+#screen, with the time and date and with the current window highlighted
+hardstatus alwayslastline '%{= kG}%{g}[ %{G}%S%{g} | %{m}%1`%{g} | node %{b}%2` %{g}][ %= %{= kw}%?%-Lw%?->%{+u C}#%n-%f%t%?(%u)%?%{= w}<-%?%+Lw%?%?%= %{g}][%{m} %d/%m %{W}%c:%s %{g}]'
+
+
+bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
+# So it won't seem like there is a delay when entering copy mode
+# msgminwait 0
+# Make search case-insensitive
+ignorecase on
+# terminfo and termcap for nice 256 color terminal
+term "screen-256color"
+# allow bold colors - necessary for some reason
+attrcolor b ".I" 
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+# erase background with current bg color
+defbce "on"
+
+scrollback 100000
+defscrollback 100000
+
+# Finally open tabs
+#screen -t ipython 0 ipython
+#screen -t zsh 1
