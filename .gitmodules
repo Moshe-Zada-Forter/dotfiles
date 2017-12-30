@@ -14,9 +14,6 @@
 [submodule "vim/bundle/IndexedSearch"]
 	path = vim/bundle/IndexedSearch
 	url = git@github.com:vim-scripts/IndexedSearch.git
-[submodule "vim/bundle/camelcasemotion"]
-	path = vim/bundle/camelcasemotion
-	url = git@github.com:vim-scripts/camelcasemotion.git
 [submodule "vim/bundle/change-inside-surroundings.vim"]
 	path = vim/bundle/change-inside-surroundings.vim
 	url = git@github.com:briandoll/change-inside-surroundings.vim.git
