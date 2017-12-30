@@ -22,11 +22,6 @@ alias yip='yadr init-plugins'
 # PS
 alias psa="ps aux"
 alias psg="ps aux | grep "
-alias psr='ps aux | grep ruby'
-
-# Moving around
-alias cdb='cd -'
-alias cls='clear;ls'
 
 # Show human friendly numbers and colors
 alias df='df -h'
@@ -53,16 +48,6 @@ TRAPHUP() {
 alias ar='source $yadr/zsh/aliases.zsh'  #alias reload
 alias gar="killall -HUP -u \"$USER\" zsh"  #global alias reload
 
-# vim using
-mvim --version > /dev/null 2>&1
-MACVIM_INSTALLED=$?
-if [ $MACVIM_INSTALLED -eq 0 ]; then
-  alias vim="mvim -v"
-fi
-
-# mimic vim functions
-alias :q='exit'
-
 # vimrc editing
 alias ve='vim ~/.vimrc'
 
@@ -88,43 +73,8 @@ alias gz='tar -zcvf'
 alias ka9='killall -9'
 alias k9='kill -9'
 
-# Gem install
-alias sgi='sudo gem install --no-ri --no-rdoc'
-
-# TODOS
-# This uses NValt (NotationalVelocity alt fork) - http://brettterpstra.com/project/nvalt/
-# to find the note called 'todo'
-alias todo='open nvalt://find/todo'
-
 # Forward port 80 to 3000
 alias portforward='sudo ipfw add 1000 forward 127.0.0.1,3000 ip from any to any 80 in'
-
-alias rdm='rake db:migrate'
-alias rdmr='rake db:migrate:redo'
-
-# Zeus
-alias zs='zeus server'
-alias zc='zeus console'
-alias zr='zeus rspec'
-alias zrc='zeus rails c'
-alias zrs='zeus rails s'
-alias zrdbm='zeus rake db:migrate'
-alias zrdbtp='zeus rake db:test:prepare'
-
-# Rspec
-alias rs='rspec spec'
-alias sr='spring rspec'
-alias src='spring rails c'
-alias srgm='spring rails g migration'
-alias srdm='spring rake db:migrate'
-alias srdt='spring rake db:migrate'
-alias srdmt='spring rake db:migrate db:test:prepare'
-
-
-# Sprintly - https://github.com/nextbigsoundinc/Sprintly-GitHub
-alias sp='sprintly'
-# spb = sprintly branch - create a branch automatically based on the bug you're working on
-alias spb="git checkout -b \`sp | tail -2 | grep '#' | sed 's/^ //' | sed 's/[^A-Za-z0-9 ]//g' | sed 's/ /-/g' | cut -d"-" -f1,2,3,4,5\`"
 
 alias hpr='hub pull-request'
 alias grb='git recent-branches'
@@ -133,17 +83,11 @@ alias grb='git recent-branches'
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
-alias dbtp='spring rake db:test:prepare'
-alias dbm='spring rake db:migrate'
-alias dbmr='spring rake db:migrate:redo'
-alias dbmd='spring rake db:migrate:down'
-alias dbmu='spring rake db:migrate:up'
-
 alias brewu='brew update  && brew upgrade --all && brew cleanup && brew prune && brew doctor'
 
 # Personal stuff
 alias pull_request='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
-  https://github.com/$(git remote -v | sed -n "s/origin.*git\@github.com\:\(.*\/.*\).git.*(push)/\1/p")/compare/$(git symbolic-ref HEAD | awk -F "/" "{print \$3}")\?expand=1'
+    https://github.com/$(git remote -v | sed -n "s/origin.*git\@github.com\:\(.*\/.*\).* (push)/\1/p" | sed "s/.git//")/compare/$(git symbolic-ref HEAD | awk -F "/" "{print \$3}")\?expand=1'
 
 function ecc {
     eval `python ~/dev/snippets/ssh.py $*`
@@ -170,7 +114,18 @@ function notify_end () {
     $*
     terminal-notifier -message "$1 is endeed"
 }
+function hl() {
+    pbpaste | highlight --syntax=$1 -O rtf --font-size 24 --font Inconsolata --style solarized-dark -W -J 50 -j 3| pbcopy
+}
 
+function ecrLogin() {
+    $(aws ecr get-login --region us-east-1| sed "s/-e none//g")
+}
+
+function ct() {
+    BRANCH=$(git rev-parse --abbrev-ref HEAD | sed -e "s/moshe-//" -e "s/-feature//" -e "s/-/ /g")
+    git commit -am ${BRANCH}
+}
 alias reload="killall -HUP zsh"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias greo="grep"
@@ -190,4 +145,13 @@ alias startredis='sudo launchctl start io.redis.redis-server'
 alias stopredis='sudo launchctl stop io.redis.redis-server'
 alias curl="curl -s"
 alias vi=vim
-alias ipyspark="PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --master local[1] --jars /Users/Moshe/dev/spark-reindex/jars/elasticsearch-hadoop-2.1.2/dist/elasticsearch-hadoop-2.1.2.jar --driver-class-path  /Users/Moshe/dev/spark-reindex/jars/elasticsearch-hadoop-2.1.2/dist/elasticsearch-hadoop-2.1.2.jar"
+alias ipyspark="PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --master local[*]"
+alias service="brew services"
+alias lp='lpass show --all -G '
+alias pbc="pbcopy"
+alias pbw="pwd | pbcopy"
+alias pbp="pbpaste"
+alias nyan="py.test --tap-stream --flake | tap-nyan"
+alias json="python -m json.tool"
+alias sub="subliminal download -l he ."
+alias gc_repo="git checkout develop && git pull &&  git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d"

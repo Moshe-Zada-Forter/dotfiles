@@ -4,17 +4,17 @@ set nocompatible
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
+if filereadable(expand('~/.vimrc.before'))
   source ~/.vimrc.before
 endif
 
 " ================ General Config ====================
 
 set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
+set history=5000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
+set guicursor=a:blinkon0        "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set title
@@ -32,12 +32,12 @@ syntax on
 " That means all \x commands turn into ,x
 " The mapleader has to be set before vundle starts loading all 
 " the plugins.
-let mapleader=","
+let g:mapleader=','
 
 " =============== Vundle Initialization ===============
 " This loads all the plugins specified in ~/.vim/vundles.vim
 " Use Vundle plugin to manage all other plugins
-if filereadable(expand("~/.vim/vundles.vim"))
+if filereadable(expand('~/.vim/vundles.vim'))
   source ~/.vim/vundles.vim
 endif
 
@@ -45,7 +45,7 @@ endif
 
 set noswapfile
 set nobackup
-set nowb
+set nowritebackup
 
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
@@ -72,9 +72,9 @@ nnoremap P P=`]<C-o>
 
 filetype plugin on
 filetype indent on
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
-" Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
@@ -117,45 +117,144 @@ set smartcase       " ...unless we type a capital
 " ============= Personal settings ========================
 imap <C-A> <C-O><Home>
 imap <C-E> <C-O><End>
-"map <C-E> <C-O> <End>
 
 "Disable flush on exit
 "set t_ti= t_te=
 
-map z :set paste<ENTER>i
-map <F3> :CtrlP<ENTER>
-set pastetoggle=<C-Z>
-
-" Disable java compile
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': ['foo', 'bar'],
-                           \ 'passive_filetypes': ['java'] }
 
 " Strip trailing whitespace
 function! <SID>StripTrailingWhitespaces()
-   let _s=@/
-   let l = line(".")
-   let c = col(".")
+   let l:_s=@/
+   let l:l = line('.')
+   let l:c = col('.')
    %s/\s\+$//e
    let @/=_s
-   call cursor(l, c)
+   call cursor(l:l, l:c)
 endfunction
 
 nnoremap <silent> <leader>W :call <SID>StripTrailingWhitespaces()<CR>
 
-"Break long lines
-set wrap
 
 imap ± ~
 imap § `
 
-set cpoptions+=$ "show dollar sign at end of text to be changed
+set wrap             " Break long lines"
+set cpoptions+=$     " Show dollar sign at end of text to be changed
+set lazyredraw       " Redraw only when we need to.
+set relativenumber
+set number
 
-set lazyredraw          " redraw only when we need to.
+" Map z to paste and enter to insert mode
+map z :set paste<ENTER>i
 
-" turn off search highlight
+" Turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
 " ================ Custom Settings ========================
 
 so ~/.yadr/vim/settings.vim
+:colorscheme delek
+
+" ALE configurations
+Plugin 'w0rp/ale'
+command F ALEFix
+let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_sign_error = 'E>'
+let g:ale_sign_warning = 'W>'
+highlight ALEWarning ctermbg=1
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 0
+let g:ale_completion_enabled = 0
+highlight ALEWarning ctermbg=None cterm=underline
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'python': ['autopep8'],
+\   'ruby': ['rubocop'],
+\}
+
+
+"lightline.vim
+:set noshowmode
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'ALEStatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'ALEStatus': 'LinterStatus'
+      \ },
+      \ }
+
+
+"NERDTree configurations
+map <C-n> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+Plugin 'undotree'
+
+"FZF
+set runtimepath+=~/.fzf
+Plugin 'junegunn/fzf.vim'
+map <C-p> :GFiles<CR>
+map <C-z> :History<CR>
+map <C-g> :Commits<CR>
+map <C-f> :Ag 
+
+" Vim's persistent undo
+set undofile                " Maintain undo history between sessions"
+set undodir=~/.vim/undodir  " where to save undo histories"
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+
+" Shortcuts
+command Run :!clear && run.sh %<CR>
+command GD :!clear && git diff
+command GS :!clear && git status
+command NONU :set nonumber norelativenumber
+
+" completer
+Plugin 'maralla/completor.vim'
+let g:completor_python_binary = '/usr/local/bin/python'
+let g:completor_node_binary = '/Users/Moshe/.nvm/versions/node/v9.2.1/bin/node'
+
+" vim-gitgutter
+Plugin 'airblade/vim-gitgutter'
+:set updatetime=250
+map h :GitGutterNextHunk<CR>
+
+" Highlight tabs chargs
+:highlight SpecialKey ctermfg=1
+:set list
+:set listchars=tab:>\ 
+
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+                \   '%dW %dE',
+                \   l:all_non_errors,
+                \   l:all_errors
+                \)
+endfunction
