@@ -2,3 +2,6 @@
 	path = zsh/prezto
 	url = https://github.com/sorin-ionescu/prezto.git
   ignore = dirty
+[submodule "vim/bundle/ale"]
+	path = vim/bundle/ale
+	url = git@github.com:w0rp/ale.git
