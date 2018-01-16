@@ -172,6 +172,11 @@ let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \}
 
+" VueJS Support
+Plugin 'posva/vim-vue'
+au BufNewFile,BufRead *.vue setf vue
+let g:vue_disable_pre_processors=1
+
 
 "lightline.vim
 :set noshowmode
