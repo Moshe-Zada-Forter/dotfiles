@@ -164,6 +164,7 @@ let g:ale_sign_warning = 'W>'
 highlight ALEWarning ctermbg=1
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 0
+let g:ale_python_pyls_executable = '/usr/local/bin/pyls'
 let g:ale_completion_enabled = 0
 highlight ALEWarning ctermbg=None cterm=underline
 let g:ale_fixers = {
@@ -189,8 +190,8 @@ function! LinterStatus() abort
 
     return l:counts.total == 0 ? 'OK' : printf(
     \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
+    \   l:all_non_errors,
+    \   l:all_errors
     \)
 endfunction
 
