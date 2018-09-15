@@ -145,7 +145,7 @@ set relativenumber
 set number
 
 " Map z to paste and enter to insert mode
-map z :set paste<ENTER>i
+map Z :set paste<ENTER>i
 
 " Turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
@@ -153,7 +153,6 @@ nnoremap <leader><space> :nohlsearch<CR>
 " ================ Custom Settings ========================
 
 so ~/.yadr/vim/settings.vim
-:colorscheme delek
 
 " ALE configurations
 Plugin 'w0rp/ale'
@@ -165,12 +164,16 @@ highlight ALEWarning ctermbg=1
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 0
 let g:ale_python_pyls_executable = '/usr/local/bin/pyls'
-let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
 highlight ALEWarning ctermbg=None cterm=underline
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'python': ['autopep8'],
 \   'ruby': ['rubocop'],
+\}
+
+let g:ale_linters = {
+\   'python': ['pyls'],
 \}
 
 " VueJS Support
@@ -212,7 +215,10 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-Plugin 'undotree'
+Plugin 'ekalinin/Dockerfile.vim'
+
+Plugin 'kristijanhusak/vim-carbon-now-sh'
+vnoremap <F5> :CarbonNowSh<CR>
 
 "FZF
 set runtimepath+=~/.fzf
@@ -235,9 +241,9 @@ command GS :!clear && git status
 command NONU :set nonumber norelativenumber
 
 " completer
-Plugin 'maralla/completor.vim'
-let g:completor_python_binary = '/usr/local/bin/python'
-let g:completor_node_binary = '/Users/Moshe/.nvm/versions/node/v9.2.1/bin/node'
+" Plugin 'maralla/completor.vim'
+" let g:completor_python_binary = '/usr/local/bin/python'
+" let g:completor_node_binary = '/Users/Moshe/.nvm/versions/node/v9.2.1/bin/node'
 
 " vim-gitgutter
 Plugin 'airblade/vim-gitgutter'

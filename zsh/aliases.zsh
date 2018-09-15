@@ -145,13 +145,18 @@ alias startredis='sudo launchctl start io.redis.redis-server'
 alias stopredis='sudo launchctl stop io.redis.redis-server'
 alias curl="curl -s"
 alias vi=vim
-alias ipyspark="PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --master local[*]"
+# alias ipyspark="PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --master local[*] --packages com.amazonaws:aws-java-sdk:1.11.318,org.apache.hadoop:hadoop-aws:2.7.3,org.elasticsearch:elasticsearch-spark-20_2.11:5.6.0"
+alias ipyspark="PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --master local[*] "
 alias service="brew services"
 alias lp='lpass show --all -G '
 alias pbc="pbcopy"
 alias pbw="pwd | pbcopy"
 alias pbp="pbpaste"
+alias pt="py.test"
 alias nyan="py.test --tap-stream --flake | tap-nyan"
 alias json="python -m json.tool"
 alias sub="subliminal download -l he ."
 alias gc_repo="git checkout develop && git pull &&  git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d"
+alias ungron="gron --ungron"
+alias cat="bat"
+alias ncdu="ncdu --color dark -rr -x"

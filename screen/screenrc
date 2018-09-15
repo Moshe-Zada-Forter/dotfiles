@@ -11,11 +11,15 @@ bind -k kd focus down
 #backtick 1 0 1 git rev-parse --abbrev-ref HEAD
 #backtick 1 0 5 git rev-parse --abbrev-ref HEAD
 backtick 1 0 5 bash -c 'git rev-parse --abbrev-ref HEAD | sed -e "s/moshe-//" -e "s/-feature//" -e "s/-/ /g"'
-backtick 2 0 5 cat /tmp/node_version
+backtick 2 0 20 cat /tmp/node_version
+backtick 3 0 6 _screen_git_sign.sh added
+backtick 4 0 6 _screen_git_sign.sh modified
+backtick 5 0 6 _screen_git_sign.sh deleted
+backtick 6 0 6 _screen_git_sign.sh staged
 
 #change the hardstatus settings to give an window list at the bottom of the
 #screen, with the time and date and with the current window highlighted
-hardstatus alwayslastline '%{= kG}%{g}[ %{G}%S%{g} | %{m}%1`%{g} | node %{b}%2` %{g}][ %= %{= kw}%?%-Lw%?->%{+u C}#%n-%f%t%?(%u)%?%{= w}<-%?%+Lw%?%?%= %{g}][%{m} %d/%m %{W}%c:%s %{g}]'
+hardstatus alwayslastline '%{= kG}%{g}[ %{G}%S%{g} | %{m}%1` %{g}%6`%{r}%4`%{m}%3`%{y}%5`%{g}| node %{b}%2` %{g}][ %= %{= kw}%?%-Lw%?->%{+u C}#%n-%f%t%?(%u)%?%{= w}<-%?%+Lw%?%?%= %{g}][%{m} %d/%m %{W}%c:%s %{g}]'
 
 
 bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
