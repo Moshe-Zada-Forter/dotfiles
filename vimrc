@@ -270,3 +270,4 @@ function! LinterStatus() abort
                 \   l:all_errors
                 \)
 endfunction
+:colorscheme delek
