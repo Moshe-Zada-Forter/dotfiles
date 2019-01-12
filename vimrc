@@ -154,6 +154,8 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 so ~/.yadr/vim/settings.vim
 
+Plugin 'johngrib/vim-game-code-break'
+
 " ALE configurations
 Plugin 'w0rp/ale'
 command F ALEFix
@@ -163,8 +165,10 @@ let g:ale_sign_warning = 'W>'
 highlight ALEWarning ctermbg=1
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 0
+" let g:ale_use_global_executables = 0
 let g:ale_python_pyls_executable = '/usr/local/bin/pyls'
 let g:ale_completion_enabled = 1
+map gd :ALEGoToDefinition<CR>
 highlight ALEWarning ctermbg=None cterm=underline
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
@@ -238,6 +242,7 @@ set undoreload=10000        " number of lines to save for undo
 command Run :!clear && run.sh %<CR>
 command GD :!clear && git diff
 command GS :!clear && git status
+command GB :!clear && git blame %
 command NONU :set nonumber norelativenumber
 
 " completer
