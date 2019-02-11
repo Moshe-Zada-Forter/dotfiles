@@ -1,6 +1,7 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+set encoding=utf-8
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
@@ -134,6 +135,8 @@ endfunction
 
 nnoremap <silent> <leader>W :call <SID>StripTrailingWhitespaces()<CR>
 
+" Disable visual bell
+set t_vb=
 
 imap ± ~
 imap § `
@@ -172,7 +175,7 @@ map gd :ALEGoToDefinition<CR>
 highlight ALEWarning ctermbg=None cterm=underline
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
-\   'python': ['autopep8'],
+\   'python': ['autopep8', 'isort'],
 \   'ruby': ['rubocop'],
 \}
 
