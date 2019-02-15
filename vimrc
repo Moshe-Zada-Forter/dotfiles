@@ -228,7 +228,7 @@ Plugin 'kristijanhusak/vim-carbon-now-sh'
 vnoremap <F5> :CarbonNowSh<CR>
 
 "FZF
-set runtimepath+=~/.fzf
+set runtimepath+=/usr/local/opt/fzf
 Plugin 'junegunn/fzf.vim'
 map <C-p> :GFiles<CR>
 map <C-z> :History<CR>
