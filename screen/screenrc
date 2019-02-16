@@ -1,5 +1,4 @@
 altscreen on
-term screen-256color
 startup_message off
 
 # bind arrows for moving between windows
@@ -8,24 +7,24 @@ bind -k kl focus left
 bind -k ku focus up
 bind -k kd focus down
 
+# bind R to reload screenrc
+bind R eval "source $HOME/.screenrc"
+
 # # Node version
 # backtick 2 20 20 cat /tmp/node_version
 # # Git Status
-# backtick 1 2 2 bash -c 'git rev-parse --abbrev-ref HEAD | sed -e "s/moshe-//" -e "s/-feature//" -e "s/-/ /g"'
-# backtick 3 2 2 _screen_git_sign.sh added
-# backtick 4 2 2 _screen_git_sign.sh modified
-# backtick 5 2 2 _screen_git_sign.sh deleted
-# backtick 6 2 2 _screen_git_sign.sh staged
-# # Check baterry status every 20 seconds
+backtick 1 2 2 bash -c 'git rev-parse --abbrev-ref HEAD | sed -e "s/moshe-//" -e "s/-feature//" -e "s/-/ /g"'
+backtick 3 2 2 _screen_git_sign.sh added
+backtick 4 2 2 _screen_git_sign.sh modified
+backtick 5 2 2 _screen_git_sign.sh deleted
+backtick 6 2 2 _screen_git_sign.sh staged
+# Check baterry status every 20 seconds
 # backtick 7 20 20 bash -c 'pmset -g batt | grep -Eo "\d+%" | cut -d% -f1'
 
 #change the hardstatus settings to give an window list at the bottom of the
 #screen, with the time and date and with the current window highlighted
-# hardstatus alwayslastline '%{= kG}%{g}[ %{G}%S%{g} | %{m}%1` %{g}%6`%{r}%4`%{m}%3`%{y}%5`%{g}| node %{b}%2` %{g}][ %= %{= kw}%?%-Lw%?->%{+u C}#%n-%f%t%?(%u)%?%{= w}<-%?%+Lw%?%?%= %{g}][%{m} %7`%% %{W}%c:%s %{g}]'
-hardstatus alwayslastline '%{= kG}%{g}[ %{G}%S%{g} ][ %= %{= kw}%?%-Lw%?->%{+u C}#%n-%f%t%?(%u)%?%{= w}<-%?%+Lw%?%?%= %{g}][ %{W}%c:%s %{g}]'
+hardstatus alwayslastline '%{= kG}%{g}[ %{G}%S%{g} | %{m}%1` %{g}%6`%{r}%4`%{m}%3`%{y}%5`%{g}| node %{b}%2` %{g}][ %= %{= kw}%?%-Lw%?->%{+u C}#%n-%f%t%?(%u)%?%{= w}<-%?%+Lw%?%?%= %{g}][%{W}%c:%s %{g}]'
 
-
-bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
 # So it won't seem like there is a delay when entering copy mode
 # msgminwait 0
 # Make search case-insensitive
@@ -41,7 +40,3 @@ defbce "on"
 
 scrollback 100000
 defscrollback 100000
-
-# Finally open tabs
-#screen -t ipython 0 ipython
-#screen -t zsh 1
