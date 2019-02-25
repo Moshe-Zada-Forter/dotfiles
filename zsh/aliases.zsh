@@ -143,7 +143,7 @@ alias nr="npm run"
 alias a="atom"
 alias startredis='sudo launchctl start io.redis.redis-server'
 alias stopredis='sudo launchctl stop io.redis.redis-server'
-alias curl="curl -s"
+alias curl="curl -L"
 alias vi=vim
 # alias ipyspark="PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --master local[*] --packages com.amazonaws:aws-java-sdk:1.11.318,org.apache.hadoop:hadoop-aws:2.7.3,org.elasticsearch:elasticsearch-spark-20_2.11:5.6.0"
 alias ipyspark="PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --master local[*] "
@@ -164,3 +164,4 @@ alias ipython="screen -X title ipython; ipython; screen -X title zsh"
 alias prettifyCliboard="pbpaste|python -m json.tool | pbcopy"
 alias python="python3"
 alias pip="pip3"
+alias post='curl -X POST -H "Content-Type: application/json"'
