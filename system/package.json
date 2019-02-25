@@ -1,9 +1,19 @@
 {
   "dependencies": {
+    "@vue/cli": {
+      "version": "3.4.0",
+      "from": "@vue/cli",
+      "resolved": "https://registry.npmjs.org/@vue/cli/-/cli-3.4.0.tgz"
+    },
     "diff-so-fancy": {
       "version": "1.2.0",
       "from": "diff-so-fancy",
       "resolved": "https://registry.npmjs.org/diff-so-fancy/-/diff-so-fancy-1.2.0.tgz"
+    },
+    "eslint": {
+      "version": "5.14.0",
+      "from": "eslint",
+      "resolved": "https://registry.npmjs.org/eslint/-/eslint-5.14.0.tgz"
     },
     "npm": {
       "version": "6.4.1"
