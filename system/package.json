@@ -15,6 +15,11 @@
       "from": "eslint",
       "resolved": "https://registry.npmjs.org/eslint/-/eslint-5.14.0.tgz"
     },
+    "lighthouse": {
+      "version": "4.1.0",
+      "from": "lighthouse",
+      "resolved": "https://registry.npmjs.org/lighthouse/-/lighthouse-4.1.0.tgz"
+    },
     "npm": {
       "version": "6.4.1"
     }

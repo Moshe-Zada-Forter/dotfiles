@@ -23,6 +23,10 @@ flake8==3.7.5
 Flask==1.0.2
 future==0.17.1
 guessit==3.0.3
+h11==0.8.1
+h2==3.1.0
+hpack==3.0.0
+hyperframe==5.2.0
 idna==2.8
 ipython==7.2.0
 ipython-genutils==0.2.0
@@ -52,10 +56,11 @@ pyls-isort==0.1.1
 pypandoc==1.4
 pysrt==1.1.1
 pytest==4.2.1
--e git+git@github.com:moshe/pytest-tomato.git@89d038662ce1f4a9af88f1a00a624ff384ef0166#egg=pytest_tomato&subdirectory=pytest-tomato
+-e git+git@github.com:moshe/pytest-tomato.git@5ba1dc3b6bb85d910046a03a4032c5336776dc6e#egg=pytest_tomato&subdirectory=pytest-tomato
 python-dateutil==2.8.0
 python-jsonrpc-server==0.1.2
 python-language-server==0.23.2
+pytoml==0.1.20
 pytz==2018.9
 PyYAML==4.2b4
 rarfile==3.0
@@ -68,10 +73,12 @@ six==1.12.0
 soupsieve==1.7.3
 stevedore==1.30.0
 subliminal==2.0.5
--e git+git@github.com:moshe/pytest-tomato.git@89d038662ce1f4a9af88f1a00a624ff384ef0166#egg=tomato_lib&subdirectory=tomato-lib
+-e git+git@github.com:moshe/pytest-tomato.git@5ba1dc3b6bb85d910046a03a4032c5336776dc6e#egg=tomato_lib&subdirectory=tomato-lib
 traitlets==4.3.2
+typing-extensions==3.7.2
 urllib3==1.24.1
 virtualenv==16.4.0
 virtualenv-clone==0.5.1
 wcwidth==0.1.7
 Werkzeug==0.14.1
+wsproto==0.13.0
