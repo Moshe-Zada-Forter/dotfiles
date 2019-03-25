@@ -22,6 +22,11 @@
     },
     "npm": {
       "version": "6.4.1"
+    },
+    "svg-term-cli": {
+      "version": "2.1.1",
+      "from": "svg-term-cli",
+      "resolved": "https://registry.npmjs.org/svg-term-cli/-/svg-term-cli-2.1.1.tgz"
     }
   }
 }

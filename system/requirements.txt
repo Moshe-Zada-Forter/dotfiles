@@ -13,6 +13,7 @@ pyaml==18.11.0
 pycodestyle==2.5.0
 python-dateutil==2.8.0
 pytz==2018.9
+PyYAML==5.1
 rebulk==1.0.0
 six==1.12.0
 unicodecsv==0.14.1
