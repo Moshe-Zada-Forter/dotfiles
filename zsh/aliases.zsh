@@ -165,3 +165,4 @@ alias prettifyCliboard="pbpaste|python -m json.tool | pbcopy"
 alias python="python3"
 alias pip="pip3"
 alias post='curl -X POST -H "Content-Type: application/json"'
+alias ios="open /Applications/Xcode.app/Contents/Developper/Applications/Simulator.app"

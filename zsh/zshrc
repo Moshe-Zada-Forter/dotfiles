@@ -75,3 +75,6 @@ export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin:${HOME}/go/bin/"
 
 export PATH="$PATH:${HOME}/.cargo/bin/"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"

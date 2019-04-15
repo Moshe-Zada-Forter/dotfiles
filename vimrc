@@ -160,19 +160,29 @@ so ~/.yadr/vim/settings.vim
 Plugin 'johngrib/vim-game-code-break'
 
 " ALE configurations
-Plugin 'w0rp/ale'
-command F ALEFix
 let g:ale_echo_msg_format = '[%linter%] %s'
 let g:ale_sign_error = 'E>'
 let g:ale_sign_warning = 'W>'
-highlight ALEWarning ctermbg=1
+" highlight ALEWarning ctermbg=1
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 0
-" let g:ale_use_global_executables = 0
 let g:ale_python_pyls_executable = '/usr/local/bin/pyls'
 let g:ale_completion_enabled = 1
+" set completeopt=longest,menuone
+set completeopt-=menu
+set completeopt+=menuone   " show the popup menu even when there is only 1 match
+set completeopt-=longest   " don't insert the longest common text
+" set completeopt-=preview   " don't show preview window
+set completeopt+=noinsert  " don't insert any text until user chooses a match
+set completeopt-=noselect  " select first match"
+
+command F ALEFix
 map gd :ALEGoToDefinition<CR>
+map sd :ALEHover<CR>
+
+highlight ALEError ctermbg=None cterm=underline
 highlight ALEWarning ctermbg=None cterm=underline
+highlight ALEStyleError ctermbg=None cterm=underline
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'python': ['autopep8', 'isort'],
@@ -182,12 +192,7 @@ let g:ale_fixers = {
 let g:ale_linters = {
 \   'python': ['pyls'],
 \}
-
-" VueJS Support
-Plugin 'posva/vim-vue'
-au BufNewFile,BufRead *.vue setf vue
-let g:vue_disable_pre_processors=1
-
+Plugin 'w0rp/ale'
 
 "lightline.vim
 :set noshowmode
