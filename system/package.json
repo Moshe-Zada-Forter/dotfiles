@@ -1,47 +1,27 @@
 {
   "dependencies": {
     "@vue/cli": {
-      "version": "3.5.5",
+      "version": "3.6.3",
       "from": "@vue/cli",
-      "resolved": "https://registry.npmjs.org/@vue/cli/-/cli-3.5.5.tgz"
+      "resolved": "https://registry.npmjs.org/@vue/cli/-/cli-3.6.3.tgz"
     },
     "diff-so-fancy": {
-      "version": "1.2.0",
+      "version": "1.2.5",
       "from": "diff-so-fancy",
-      "resolved": "https://registry.npmjs.org/diff-so-fancy/-/diff-so-fancy-1.2.0.tgz"
-    },
-    "eslint": {
-      "version": "5.14.0",
-      "from": "eslint",
-      "resolved": "https://registry.npmjs.org/eslint/-/eslint-5.14.0.tgz"
-    },
-    "expo-cli": {
-      "version": "2.13.0",
-      "from": "expo-cli",
-      "resolved": "https://registry.npmjs.org/expo-cli/-/expo-cli-2.13.0.tgz"
-    },
-    "lighthouse": {
-      "version": "4.1.0",
-      "from": "lighthouse",
-      "resolved": "https://registry.npmjs.org/lighthouse/-/lighthouse-4.1.0.tgz"
+      "resolved": "https://registry.npmjs.org/diff-so-fancy/-/diff-so-fancy-1.2.5.tgz"
     },
     "npm": {
-      "version": "6.4.1"
-    },
-    "pyright": {
-      "version": "1.0.5",
-      "from": "pyright",
-      "resolved": "https://registry.npmjs.org/pyright/-/pyright-1.0.5.tgz"
-    },
-    "react-native-git-upgrade": {
-      "version": "0.2.7",
-      "from": "react-native-git-upgrade",
-      "resolved": "https://registry.npmjs.org/react-native-git-upgrade/-/react-native-git-upgrade-0.2.7.tgz"
+      "version": "6.7.0"
     },
     "svg-term-cli": {
       "version": "2.1.1",
       "from": "svg-term-cli",
       "resolved": "https://registry.npmjs.org/svg-term-cli/-/svg-term-cli-2.1.1.tgz"
+    },
+    "watchman": {
+      "version": "1.0.0",
+      "from": "watchman",
+      "resolved": "https://registry.npmjs.org/watchman/-/watchman-1.0.0.tgz"
     }
   }
 }
