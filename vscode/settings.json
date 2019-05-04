@@ -1,0 +1,27 @@
+{
+    "python.pythonPath": "/usr/local/bin/python3",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "eslint.validate": [
+        {
+          "language": "vue",
+          "autoFix": true
+        },
+        {
+          "language": "html",
+          "autoFix": true
+        },
+        {
+          "language": "javascript",
+          "autoFix": true
+        }
+      ],
+      "eslint.autoFixOnSave": true,
+      "editor.tabSize": 2,
+      "editor.formatOnPaste": true,
+      "editor.minimap.enabled": false,
+      "workbench.colorTheme": "Noctis Azureus",
+      "workbench.fontAliasing": "antialiased",
+      "editor.scrollBeyondLastLine": false
+}

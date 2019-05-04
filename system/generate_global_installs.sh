@@ -11,3 +11,6 @@ npm list -g --depth=0 --json > ~/.yadr/system/package.json
 
 echo 'Generating brewfile'
 rm Brewfile && brew bundle dump
+
+echo 'Generating Code plugins'
+code --list-extensions > ~/.yadr/vscode/plugins

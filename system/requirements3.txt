@@ -3,7 +3,7 @@ alabaster==0.7.12
 appdirs==1.4.3
 appnope==0.1.0
 asciinema==2.0.2
--e git+git@github.com:moshe/asonic.git@f2d91f9e0af2ec5ed7a4b845dae5262b175ba521#egg=asonic
+-e git+git@github.com:moshe/asonic.git@5dd18f24d600d6e02cc87e3c2146122344db40ca#egg=asonic
 async-timeout==3.0.1
 atomicwrites==1.3.0
 attrs==18.2.0
