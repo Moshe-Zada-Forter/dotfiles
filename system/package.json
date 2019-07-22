@@ -1,27 +1,47 @@
 {
   "dependencies": {
     "@vue/cli": {
-      "version": "3.6.3",
+      "version": "3.8.2",
       "from": "@vue/cli",
-      "resolved": "https://registry.npmjs.org/@vue/cli/-/cli-3.6.3.tgz"
+      "resolved": "https://registry.npmjs.org/@vue/cli/-/cli-3.8.2.tgz"
+    },
+    "@vue/cli-upgrade": {
+      "version": "3.8.0",
+      "from": "@vue/cli-upgrade",
+      "resolved": "https://registry.npmjs.org/@vue/cli-upgrade/-/cli-upgrade-3.8.0.tgz"
     },
     "diff-so-fancy": {
       "version": "1.2.5",
       "from": "diff-so-fancy",
       "resolved": "https://registry.npmjs.org/diff-so-fancy/-/diff-so-fancy-1.2.5.tgz"
     },
+    "firebase-tools": {
+      "version": "6.10.0",
+      "from": "firebase-tools",
+      "resolved": "https://registry.npmjs.org/firebase-tools/-/firebase-tools-6.10.0.tgz"
+    },
+    "live-server": {
+      "version": "1.2.1",
+      "from": "live-server",
+      "resolved": "https://registry.npmjs.org/live-server/-/live-server-1.2.1.tgz"
+    },
     "npm": {
       "version": "6.7.0"
+    },
+    "serve": {
+      "version": "11.0.1",
+      "from": "serve",
+      "resolved": "https://registry.npmjs.org/serve/-/serve-11.0.1.tgz"
     },
     "svg-term-cli": {
       "version": "2.1.1",
       "from": "svg-term-cli",
       "resolved": "https://registry.npmjs.org/svg-term-cli/-/svg-term-cli-2.1.1.tgz"
     },
-    "watchman": {
+    "vue-to-react": {
       "version": "1.0.0",
-      "from": "watchman",
-      "resolved": "https://registry.npmjs.org/watchman/-/watchman-1.0.0.tgz"
+      "from": "vue-to-react",
+      "resolved": "https://registry.npmjs.org/vue-to-react/-/vue-to-react-1.0.0.tgz"
     }
   }
 }

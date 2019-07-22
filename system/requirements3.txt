@@ -20,16 +20,19 @@ click==6.7
 click-conf==0.0.1
 -e git+git@github.com:moshe/click-stream.git@c320af187b8d36d5ec25a02212ebaf16513ac22e#egg=click_stream
 coverage==4.5.3
+Cython==0.29.12
 decorator==4.3.2
+docopt==0.6.2
 docutils==0.14
 dogpile.cache==0.7.1
 elasticsearch==6.3.1
 elasticsearch-async==6.2.0
--e git+git@github.com:moshe/elasticsearch_loader.git@510fdbe9d85870190c37ae199bf9064e36bc3e45#egg=elasticsearch_loader
+-e git+git@github.com:moshe/elasticsearch_loader.git@e0580def30ca6d54d93f20815da6cc75bad7cdc9#egg=elasticsearch_loader
 entrypoints==0.3
 enzyme==0.4.1
--e git+git@github.com:moshe/elasticsearch_loader.git@510fdbe9d85870190c37ae199bf9064e36bc3e45#egg=esl_redis&subdirectory=inputs/redis
--e git+git@github.com:moshe/elasticsearch_loader.git@510fdbe9d85870190c37ae199bf9064e36bc3e45#egg=esl_s3&subdirectory=inputs/s3
+-e git+git@github.com:moshe/elasticsearch_loader.git@e0580def30ca6d54d93f20815da6cc75bad7cdc9#egg=esl_redis&subdirectory=inputs/redis
+-e git+git@github.com:moshe/elasticsearch_loader.git@e0580def30ca6d54d93f20815da6cc75bad7cdc9#egg=esl_s3&subdirectory=inputs/s3
+Faker==1.0.7
 flake8==3.7.5
 Flask==1.0.2
 future==0.17.1
@@ -54,14 +57,18 @@ mock==2.0.0
 more-itertools==6.0.0
 multidict==4.5.2
 nose==1.3.7
+numpy==1.16.4
+openstep-parser==1.3.1
 packaging==19.0
 parso==0.3.3
 pbr==5.1.2
+pbxproj==2.5.1
 pexpect==4.6.0
 pickleshare==0.7.5
 pipenv==2018.11.26
 pluggy==0.8.1
 prompt-toolkit==2.0.8
+protobuf==3.7.1
 ptyprocess==0.6.0
 py==1.7.0
 pyaml==18.11.0
@@ -96,6 +103,7 @@ Sphinx==1.8.5
 sphinxcontrib-websupport==1.1.0
 stevedore==1.30.0
 subliminal==2.0.5
+text-unidecode==1.2
 -e git+git@github.com:moshe/pytest-tomato.git@5ba1dc3b6bb85d910046a03a4032c5336776dc6e#egg=tomato_lib&subdirectory=tomato-lib
 tqdm==4.31.1
 traitlets==4.3.2
