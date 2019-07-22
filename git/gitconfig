@@ -49,9 +49,9 @@
   cp = cherry-pick -x               # grab a change from a branch
 
   # diff
-  d = diff                          # diff unstaged changes
-  dc = diff --cached                # diff staged changes
-  last = diff HEAD^                 # diff last committed change
+  d = diff -- ':!*package-lock.json' ':!yarn.lock'  # diff unstaged changes
+  dc = diff --cached                               # diff staged changes
+  last = diff HEAD^                                # diff last committed change
 
   # log
   l = log --graph --date=short
@@ -160,3 +160,6 @@
 [user]
 	name = Moshe Zada
 	email = zada.moshe@gmail.com
+	signingkey = 145E43BE2207ED68
+[commit]
+	gpgsign = true
