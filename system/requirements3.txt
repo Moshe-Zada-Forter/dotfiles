@@ -1,9 +1,13 @@
+absl-py==0.8.0
+aiofiles==0.4.0
 aiohttp==3.5.4
 alabaster==0.7.12
+apipkg==1.5
 appdirs==1.4.3
 appnope==0.1.0
 asciinema==2.0.2
--e git+git@github.com:moshe/asonic.git@5dd18f24d600d6e02cc87e3c2146122344db40ca#egg=asonic
+-e git+git@github.com:moshe/asonic.git@2062f89f5150acf3ff34ff2e368c2b31b4c0eb5d#egg=asonic
+astor==0.8.0
 async-timeout==3.0.1
 atomicwrites==1.3.0
 attrs==18.2.0
@@ -12,14 +16,16 @@ Babel==2.6.0
 babelfish==0.5.5
 backcall==0.1.0
 beautifulsoup4==4.7.1
+bleach==3.1.0
 boto3==1.9.95
 botocore==1.12.95
 certifi==2018.11.29
 chardet==3.0.4
-click==6.7
+Click==7.0
 click-conf==0.0.1
 -e git+git@github.com:moshe/click-stream.git@c320af187b8d36d5ec25a02212ebaf16513ac22e#egg=click_stream
 coverage==4.5.3
+cycler==0.10.0
 Cython==0.29.12
 decorator==4.3.2
 docopt==0.6.2
@@ -27,31 +33,46 @@ docutils==0.14
 dogpile.cache==0.7.1
 elasticsearch==6.3.1
 elasticsearch-async==6.2.0
--e git+git@github.com:moshe/elasticsearch_loader.git@e0580def30ca6d54d93f20815da6cc75bad7cdc9#egg=elasticsearch_loader
+-e git+git@github.com:moshe/elasticsearch_loader.git@fe29eb9804687f52e89a3325bed843b375bef24e#egg=elasticsearch_loader
+emoji-country-flag==1.2.1
 entrypoints==0.3
 enzyme==0.4.1
--e git+git@github.com:moshe/elasticsearch_loader.git@e0580def30ca6d54d93f20815da6cc75bad7cdc9#egg=esl_redis&subdirectory=inputs/redis
--e git+git@github.com:moshe/elasticsearch_loader.git@e0580def30ca6d54d93f20815da6cc75bad7cdc9#egg=esl_s3&subdirectory=inputs/s3
+-e git+git@github.com:moshe/elasticsearch_loader.git@fe29eb9804687f52e89a3325bed843b375bef24e#egg=esl_redis&subdirectory=inputs/redis
+-e git+git@github.com:moshe/elasticsearch_loader.git@fe29eb9804687f52e89a3325bed843b375bef24e#egg=esl_s3&subdirectory=inputs/s3
+execnet==1.7.1
 Faker==1.0.7
 flake8==3.7.5
 Flask==1.0.2
 future==0.17.1
+gast==0.2.2
+google-pasta==0.1.7
+grpcio==1.23.0
 guessit==3.0.3
 h11==0.8.1
 h2==3.1.0
+h5py==2.9.0
 hpack==3.0.0
+httpcore==0.3.0
+httptools==0.0.13
 hyperframe==5.2.0
 idna==2.8
 imagesize==1.1.0
-ipython==7.2.0
+importlib-metadata==0.23
+ipython==7.12.0
 ipython-genutils==0.2.0
 isort==4.3.4
 itsdangerous==1.1.0
 jedi==0.13.2
 Jinja2==2.10
 jmespath==0.9.3
+joblib==0.14.0
+Keras-Applications==1.0.8
+Keras-Preprocessing==1.1.0
+kiwisolver==1.1.0
 loremipsum==1.0.5
+Markdown==3.1.1
 MarkupSafe==1.1.0
+matplotlib==3.1.1
 mccabe==0.6.1
 mock==2.0.0
 more-itertools==6.0.0
@@ -66,23 +87,28 @@ pbxproj==2.5.1
 pexpect==4.6.0
 pickleshare==0.7.5
 pipenv==2018.11.26
-pluggy==0.8.1
-prompt-toolkit==2.0.8
-protobuf==3.7.1
+pkginfo==1.5.0.1
+pluggy==0.13.0
+prompt-toolkit==3.0.3
+protobuf==3.11.4
 ptyprocess==0.6.0
 py==1.7.0
 pyaml==18.11.0
 pycodestyle==2.5.0
+pycountry==19.8.18
 pyflakes==2.1.0
 Pygments==2.3.1
+PyInquirer==1.0.3
 pyls-isort==0.1.1
 pypandoc==1.4
 pyparsing==2.3.1
 pysrt==1.1.1
-pytest==4.2.1
+pytest==5.2.2
 pytest-asyncio==0.10.0
 pytest-cov==2.6.1
+pytest-forked==1.1.3
 -e git+git@github.com:moshe/pytest-tomato.git@5ba1dc3b6bb85d910046a03a4032c5336776dc6e#egg=pytest_tomato&subdirectory=pytest-tomato
+pytest-xdist==1.30.0
 python-dateutil==2.8.0
 python-jsonrpc-server==0.1.2
 python-language-server==0.26.0
@@ -90,11 +116,19 @@ pytoml==0.1.20
 pytz==2018.9
 PyYAML==4.2b4
 rarfile==3.0
+readme-renderer==24.0
 rebulk==1.0.0
 redis==3.1.0
+regex==2020.1.8
 # Editable install with no version control (requests==2.21.0)
 -e /usr/local/lib/python3.7/site-packages
+requests-async==0.5.0
+requests-toolbelt==0.9.1
+rfc3986==1.3.2
 s3transfer==0.2.0
+sanic==19.9.0
+scikit-learn==0.21.3
+scipy==1.1.0
 semver==2.8.1
 six==1.12.0
 snowballstemmer==1.2.1
@@ -103,10 +137,15 @@ Sphinx==1.8.5
 sphinxcontrib-websupport==1.1.0
 stevedore==1.30.0
 subliminal==2.0.5
+tensorboard==1.14.0
+tensorflow==1.14.0
+tensorflow-estimator==1.14.0
+termcolor==1.1.0
 text-unidecode==1.2
 -e git+git@github.com:moshe/pytest-tomato.git@5ba1dc3b6bb85d910046a03a4032c5336776dc6e#egg=tomato_lib&subdirectory=tomato-lib
 tqdm==4.31.1
 traitlets==4.3.2
+twine==2.0.0
 typing-extensions==3.7.2
 ujson==1.35
 urllib3==1.24.1
@@ -114,6 +153,10 @@ uvloop==0.12.2
 virtualenv==16.4.0
 virtualenv-clone==0.5.1
 wcwidth==0.1.7
+webencodings==0.5.1
+websockets==8.1
 Werkzeug==0.14.1
+wrapt==1.11.2
 wsproto==0.13.0
 yarl==1.3.0
+zipp==0.6.0
