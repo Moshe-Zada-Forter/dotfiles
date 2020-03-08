@@ -14,16 +14,18 @@ bind R eval "source $HOME/.screenrc"
 # backtick 2 20 20 cat /tmp/node_version
 # # Git Status
 backtick 1 2 2 bash -c 'git rev-parse --abbrev-ref HEAD | sed -e "s/moshe-//" -e "s/-feature//" -e "s/-/ /g"'
+backtick 2 2 2 bash -c 'echo $NVM_BIN |cut -d'/' -f 7'
 backtick 3 2 2 _screen_git_sign.sh added
 backtick 4 2 2 _screen_git_sign.sh modified
 backtick 5 2 2 _screen_git_sign.sh deleted
 backtick 6 2 2 _screen_git_sign.sh staged
+backtick 7 2 2 bash -c 'cat /tmp/pyenv_version'
 # Check baterry status every 20 seconds
 # backtick 7 20 20 bash -c 'pmset -g batt | grep -Eo "\d+%" | cut -d% -f1'
 
 #change the hardstatus settings to give an window list at the bottom of the
 #screen, with the time and date and with the current window highlighted
-hardstatus alwayslastline '%{= kG}%{g}[ %{G}%S%{g} | %{m}%1` %{g}%6`%{r}%4`%{m}%3`%{y}%5`%{g}| node %{b}%2` %{g}][ %= %{= kw}%?%-Lw%?->%{+u C}#%n-%f%t%?(%u)%?%{= w}<-%?%+Lw%?%?%= %{g}][%{W}%c:%s %{g}]'
+hardstatus alwayslastline '%{= kG}%{g}[ %{G}%S%{g} | %{m}%1` %{g}%6`%{r}%4`%{m}%3`%{y}%5`%{g}| node %{b}%2`%{g} | python %{b}%7` ][ %= %{= kw}%?%-Lw%?->%{+u C}#%n-%f%t%?(%u)%?%{= w}<-%?%+Lw%?%?%= %{g}][%{W}%c:%s %{g}]'
 
 # So it won't seem like there is a delay when entering copy mode
 # msgminwait 0

@@ -176,6 +176,8 @@ set completeopt-=longest   " don't insert the longest common text
 set completeopt+=noinsert  " don't insert any text until user chooses a match
 set completeopt-=noselect  " select first match"
 
+set dictionary+=/usr/share/dict/words " Enable the dictionary Ctrl+X Ctrl+K"
+
 command F ALEFix
 map gd :ALEGoToDefinition<CR>
 map sd :ALEHover<CR>
@@ -284,3 +286,7 @@ function! LinterStatus() abort
                 \)
 endfunction
 :colorscheme delek
+
+" show tabs
+set list
+set listchars=tab:>-

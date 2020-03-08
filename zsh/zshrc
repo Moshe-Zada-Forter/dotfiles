@@ -52,6 +52,7 @@ screen*)
   precmd() {
       # echo ${NVM_BIN:32:6} > /tmp/node_version
       test $OLDPWD != $PWD && echo $TERMCAP | grep -q screen && screen -X chdir "$PWD"
+      echo $PYENV_VERSION > /tmp/pyenv_version
   };;
 esac
 
@@ -78,4 +79,9 @@ export PATH="$PATH:/usr/local/opt/mysql-client/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-nvm use default
+
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+eval "$(pyenv init -)"
+
+# By default, if a command line contains a globbing expression which doesn't match anything, Zsh will print the error message
+setopt +o nomatch
