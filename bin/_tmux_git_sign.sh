@@ -18,5 +18,5 @@ elif [[ $1 == "staged" ]]; then
         echo "^ "
     fi
 elif [[ $1 == "branch" ]]; then
-    git rev-parse --abbrev-ref HEAD | sed -e "s/AMVP-//" -e "s/_/ /g" -e "s/moshe.//" -e "s/-feature//" -e "s/-/ /g"
+    git rev-parse --abbrev-ref HEAD | sed -e "s/AMVP-\([0-9]*\)//g" -e "s/_/ /g" -e "s/moshe.//" -e "s/-feature//" -e "s/-/ /g" -e 's/^\.//g'
 fi
