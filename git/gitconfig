@@ -161,10 +161,10 @@
        smudge = git-lfs smudge %f
        required = true
 [user]
-	name = Moshe Zada
-	email = moshe.zada@armis.com
-	signingkey = 92686291EB57A15D
+    name = Moshe Zada
+    email = zada.moshe@gmail.com
+    signingkey = 92686291EB57A15D
 [commit]
-	gpgsign = true
+    gpgsign = true
 [checkout]
-	defaultRemote = origin
+    defaultRemote = origin

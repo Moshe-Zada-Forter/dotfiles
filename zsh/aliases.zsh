@@ -176,11 +176,9 @@ alias serve="live-server"
 alias k="kubectl"
 alias kx="kubectx"
 alias kn="kubens"
-alias protos="./bazel-out/host/bin/external/com_google_protobuf/protoc.runfiles/com_google_protobuf/protoc --mypy_out=./bazel-out/darwin-opt/bin/ ./armis/services/*/protos/*.proto -I bazel-out/darwin-opt/bin/external/com_google_protobuf/python -I ."
-alias fun="acli"
-alias lock_protos="ENABLE_OKTA_AUTH=false ./scripts/run.sh lock-proto-changes && git add proto_lock_dir/ && SKIP=end-of-file-fixer git ci -m'Lock protos' -a && git push"
 
 alias aff="acli feature from"
 alias afr="acli feature recent"
 alias aoc="acli open ci"
+
 alias brew_x86="/usr/local/bin/brew"

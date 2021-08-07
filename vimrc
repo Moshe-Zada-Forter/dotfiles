@@ -192,7 +192,7 @@ let g:ale_fixers = {
 \}
 
 let g:ale_linters = {
-\   'python': ['pyls', 'mypy'],
+\   'python': ['pyls'],
 \}
 Plugin 'w0rp/ale'
 
