@@ -1,17 +1,11 @@
 {
+  "name": "lib",
   "dependencies": {
     "live-server": {
-      "version": "1.2.1",
-      "from": "live-server",
-      "resolved": "https://registry.npmjs.org/live-server/-/live-server-1.2.1.tgz"
-    },
-    "nodemon": {
-      "version": "2.0.1",
-      "from": "nodemon",
-      "resolved": "https://registry.npmjs.org/nodemon/-/nodemon-2.0.1.tgz"
+      "version": "1.2.1"
     },
     "npm": {
-      "version": "6.10.3"
+      "version": "7.20.3"
     }
   }
 }
