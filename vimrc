@@ -166,7 +166,7 @@ let g:ale_sign_warning = 'W>'
 " highlight ALEWarning ctermbg=1
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 0
-let g:ale_python_pyls_executable = '/usr/local/bin/pyls'
+let g:ale_python_pyls_executable = '/Users/moshe/.pyenv/shims/pyls'
 let g:ale_completion_enabled = 1
 " set completeopt=longest,menuone
 set completeopt-=menu
@@ -192,7 +192,7 @@ let g:ale_fixers = {
 \}
 
 let g:ale_linters = {
-\   'python': ['pyls'],
+\   'python': ['pyls', 'mypy'],
 \}
 Plugin 'w0rp/ale'
 

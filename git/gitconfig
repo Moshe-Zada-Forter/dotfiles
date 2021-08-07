@@ -49,7 +49,7 @@
   cp = cherry-pick -x               # grab a change from a branch
 
   # diff
-  d = diff -- ':!*package-lock.json' ':!yarn.lock'  # diff unstaged changes
+  d = diff -- ':!*ipackage-lock.json' ':!yarn.lock'  # diff unstaged changes
   dc = diff --cached                               # diff staged changes
   last = diff HEAD^                                # diff last committed change
 
@@ -117,7 +117,7 @@
 [apply]
   whitespace = nowarn
 [branch]
-  autosetupmerge = true
+    autosetupmerge = true
 [push]
   # 'git push' will push the current branch to its tracking branch
   # the usual default is to push all branches
@@ -126,7 +126,10 @@
   autocrlf = false
   editor = vim
   excludesfile = ~/.yadr/git/gitignore
-  pager = diff-so-fancy | less --tabs=1,5 -R
+  # pager = diff-so-fancy | less --tabs=1,5 -R
+  pager = delta --minus-color="#420001" --plus-color="#014200"
+[interactive]
+    diffFilter = delta --color-only
 [advice]
   statusHints = false
 [diff]
@@ -159,7 +162,9 @@
        required = true
 [user]
 	name = Moshe Zada
-	email = zada.moshe@gmail.com
-	signingkey = 145E43BE2207ED68
+	email = moshe.zada@armis.com
+	signingkey = 92686291EB57A15D
 [commit]
 	gpgsign = true
+[checkout]
+	defaultRemote = origin

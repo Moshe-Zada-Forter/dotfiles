@@ -1,10 +1,3 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -40,21 +33,20 @@ export KEYTIMEOUT=4
 # because macOS already provides this software and installing another version in
 # parallel can cause all kinds of trouble.
 # If you need to have ruby first in your PATH run:
-export PATH="$PATH:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin/:/Users/moshe/bin/google-cloud-sdk/bin/:./node_modules/.bin/"
+# export PATH="$PATH:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin/:/Users/moshe/bin/google-cloud-sdk/bin/:./node_modules/.bin/"
 # For compilers to find ruby you may need to set:
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
+# export LDFLAGS="-L/usr/local/opt/ruby/lib"
+# export CPPFLAGS="-I/usr/local/opt/ruby/include"
 
 
 # Screen
-case $TERM in
-screen*)
-  precmd() {
-      # echo ${NVM_BIN:32:6} > /tmp/node_version
-      test $OLDPWD != $PWD && echo $TERMCAP | grep -q screen && screen -X chdir "$PWD"
-      echo $PYENV_VERSION > /tmp/pyenv_version
-  };;
-esac
+# case $TERM in
+# screen*)
+#   precmd() {
+#       # echo ${NVM_BIN:32:6} > /tmp/node_version
+#       test $OLDPWD != $PWD && echo $TERMCAP | grep -q screen && screen -X chdir "$PWD"
+#   };;
+# esac
 
 export TERM="xterm-256color"
 export EDITOR="vim"
@@ -67,13 +59,12 @@ prompt steeef_simplified
 
 # https://ahmadawais.com/install-go-lang-on-macos-with-homebrew/
 export GOPATH="${HOME}/.go"
-export GOROOT="$(brew --prefix golang)/libexec"
+export GOROOT="/usr/local/opt/go/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin:${HOME}/go/bin/"
 
 export PATH="$PATH:${HOME}/.cargo/bin/"
 
 export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin"
-export PATH="$PATH:/usr/local/opt/mysql-client/bin"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -85,3 +76,39 @@ eval "$(pyenv init -)"
 
 # By default, if a command line contains a globbing expression which doesn't match anything, Zsh will print the error message
 setopt +o nomatch
+
+# export NVM_DIR="$HOME/.nvm"
+# declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+# 
+# NODE_GLOBALS+=("node")
+# NODE_GLOBALS+=("nvm")
+# 
+# load_nvm () {
+#     [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+# }
+# 
+# for cmd in "${NODE_GLOBALS[@]}"; do
+#     eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+# done
+# 
+# # [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+unsetopt share_history
+setopt no_share_history
+eval "$(pyenv init -)"
+# eval "$(_ACLI_COMPLETE=source_zsh acli)"
+source ~/dev/tmp/acli_comp.sh
+source /Users/moshe/dev/armis/dev_tools/.armis_aliasrc
+
+
+export PATH=/opt/homebrew/bin/:~/bin:$PATH
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#777777"
+source ~/dev/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source <(kubectl completion zsh)
+
+export DAZEL_DOCKER_BUILD_ARGS='--cache-from=181837087905.dkr.ecr.us-east-1.amazonaws.com/armis/dazel'
+
+export PATH="/opt/homebrew/sbin:$PATH"

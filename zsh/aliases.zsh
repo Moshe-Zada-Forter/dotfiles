@@ -93,6 +93,12 @@ function ecc {
     eval `python ~/dev/snippets/ssh.py $*`
 }
 
+function deps {
+    bazel query --noimplicit_deps "deps($1)" --output graph > /tmp/graph.in
+    dot -T svg < /tmp/graph.in > /tmp/graph.svg
+    open /tmp/graph.svg
+}
+
 function squash {
   git fetch origin                && \
   git merge origin/develop        && \
@@ -122,10 +128,10 @@ function ecrLogin() {
     $(aws ecr get-login --region us-east-1| sed "s/-e none//g")
 }
 
-function ct() {
-    BRANCH=$(git rev-parse --abbrev-ref HEAD | sed -e "s/moshe-//" -e "s/-feature//" -e "s/-/ /g")
-    git commit -am ${BRANCH}
-}
+# function ct() {
+#     BRANCH=$(git rev-parse --abbrev-ref HEAD | sed -e "s/moshe-//" -e "s/-feature//" -e "s/-/ /g")
+#     git commit -am ${BRANCH}
+# }
 alias reload="killall -HUP zsh"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias greo="grep"
@@ -140,13 +146,14 @@ alias dosleep="sudo pmset -a sleep 10"
 alias gc="git clone"
 alias pyclean="find . -name \"*.py[co]\" -type f -delete"
 alias nr="npm run"
-alias a="atom"
+alias a="acli"
 alias startredis='sudo launchctl start io.redis.redis-server'
 alias stopredis='sudo launchctl stop io.redis.redis-server'
 alias curl="curl -L"
 alias vi=vim
+export SPARK_HOME="/data/spark-2.4.4-bin-hadoop2.7/"
 # alias ipyspark="PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --master local[*] --packages com.amazonaws:aws-java-sdk:1.11.318,org.apache.hadoop:hadoop-aws:2.7.3,org.elasticsearch:elasticsearch-spark-20_2.11:5.6.0"
-alias ipyspark="PYSPARK_DRIVER_PYTHON=ipython $SPARK_HOME/bin/pyspark --master local[*] "
+# alias ipyspark="JAVA_HOME=$(/usr/libexec/java_home -v 1.8) PYSPARK_PYTHON=python3 PYSPARK_DRIVER_PYTHON=ipython /data/spark-2.4.4-bin-hadoop2.7//bin/pyspark --master 'local[*]' --packages com.amazonaws:aws-java-sdk:1.7.4,org.apache.hadoop:hadoop-aws:2.7.7 --driver-memory 12g"
 alias service="brew services"
 alias lp='lpass show --all -G '
 alias pbc="pbcopy"
@@ -156,13 +163,24 @@ alias pt="py.test"
 alias nyan="py.test --tap-stream --flake | tap-nyan"
 alias json="python -m json.tool"
 alias sub="subliminal download -l he ."
-alias gc_repo="git checkout develop && git pull &&  git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d"
+alias gc_repo="git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d"
 alias ungron="gron --ungron"
 alias ncdu="ncdu --color dark -x"
-alias ipython="screen -X title ipython; ipython; screen -X title zsh"
 alias prettifyCliboard="pbpaste|python -m json.tool | pbcopy"
 alias python="python3"
 alias pip="pip3"
 alias post='curl -X POST -H "Content-Type: application/json"'
-alias ios="open /Applications/Xcode.app/Contents/Developper/Applications/Simulator.app"
+alias ios="open -a Simulator"
 alias serve="live-server"
+
+alias k="kubectl"
+alias kx="kubectx"
+alias kn="kubens"
+alias protos="./bazel-out/host/bin/external/com_google_protobuf/protoc.runfiles/com_google_protobuf/protoc --mypy_out=./bazel-out/darwin-opt/bin/ ./armis/services/*/protos/*.proto -I bazel-out/darwin-opt/bin/external/com_google_protobuf/python -I ."
+alias fun="acli"
+alias lock_protos="ENABLE_OKTA_AUTH=false ./scripts/run.sh lock-proto-changes && git add proto_lock_dir/ && SKIP=end-of-file-fixer git ci -m'Lock protos' -a && git push"
+
+alias aff="acli feature from"
+alias afr="acli feature recent"
+alias aoc="acli open ci"
+alias brew_x86="/usr/local/bin/brew"

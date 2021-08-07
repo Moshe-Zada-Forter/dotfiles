@@ -1,57 +1,17 @@
 {
   "dependencies": {
-    "@vue/cli": {
-      "version": "3.11.0",
-      "from": "@vue/cli",
-      "resolved": "https://registry.npmjs.org/@vue/cli/-/cli-3.11.0.tgz"
-    },
-    "@vue/cli-upgrade": {
-      "version": "3.8.0",
-      "from": "@vue/cli-upgrade",
-      "resolved": "https://registry.npmjs.org/@vue/cli-upgrade/-/cli-upgrade-3.8.0.tgz"
-    },
-    "diff-so-fancy": {
-      "version": "1.2.5",
-      "from": "diff-so-fancy",
-      "resolved": "https://registry.npmjs.org/diff-so-fancy/-/diff-so-fancy-1.2.5.tgz"
-    },
-    "fauna-shell": {
-      "version": "0.9.7",
-      "from": "fauna-shell",
-      "resolved": "https://registry.npmjs.org/fauna-shell/-/fauna-shell-0.9.7.tgz"
-    },
-    "firebase-tools": {
-      "version": "6.10.0",
-      "from": "firebase-tools",
-      "resolved": "https://registry.npmjs.org/firebase-tools/-/firebase-tools-6.10.0.tgz"
-    },
     "live-server": {
       "version": "1.2.1",
       "from": "live-server",
       "resolved": "https://registry.npmjs.org/live-server/-/live-server-1.2.1.tgz"
     },
-    "netlify-cli": {
-      "version": "2.17.0",
-      "from": "netlify-cli",
-      "resolved": "https://registry.npmjs.org/netlify-cli/-/netlify-cli-2.17.0.tgz"
+    "nodemon": {
+      "version": "2.0.1",
+      "from": "nodemon",
+      "resolved": "https://registry.npmjs.org/nodemon/-/nodemon-2.0.1.tgz"
     },
     "npm": {
-      "version": "6.7.0"
-    },
-    "serve": {
-      "version": "11.0.1",
-      "from": "serve",
-      "resolved": "https://registry.npmjs.org/serve/-/serve-11.0.1.tgz"
-    },
-    "svg-term-cli": {
-      "version": "2.1.1",
-      "from": "svg-term-cli",
-      "resolved": "https://registry.npmjs.org/svg-term-cli/-/svg-term-cli-2.1.1.tgz"
-    },
-    "vue-to-react": {
-      "version": "1.0.0",
-      "from": "vue-to-react",
-      "resolved": "https://registry.npmjs.org/vue-to-react/-/vue-to-react-1.0.0.tgz"
+      "version": "6.10.3"
     }
   }
 }
